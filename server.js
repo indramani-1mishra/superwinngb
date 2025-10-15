@@ -17,7 +17,10 @@ const app = express();
 connectDB();
 
 // ✅ Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['https://superwinings.netlify.app'], // frontend domain
+  credentials: true // cookies/auth allow karne ke liye
+}));
 app.use(express.json());
 
 // ✅ Routes
